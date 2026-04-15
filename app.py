@@ -35,14 +35,14 @@ def saraksts():
 def pievienot():
     if request.method == 'POST':
         jauna_gramata = {
-            "id": len(books) + 1,
-            "nosaukums": request.form.get('nosaukums'),
-            "lapas": request.form.get('lapas'),
-            "vertējums": request.form.get('vertējums')
+            len(books) + 1,
+            request.form.get('nosaukums'),
+            request.form.get('lapas'),
+            request.form.get('vertējums')
         }
         books.append(jauna_gramata)
         return redirect(url_for('saraksts'))
-    return render_template('pievienot.html')
+        return render_template('pievienot.html')
 
 @app.route('/admin')
 def admin_panelis():
