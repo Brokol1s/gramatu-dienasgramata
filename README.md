@@ -5,3 +5,5 @@
 css, python, html, Flask, werkzeug.security (paroļu šifrēšanai)
 ## Plānošana ##
 https://drawsql.app/teams/ernests-24/diagrams/erd
+## Mana mājaslapa ##
+evsimcuks.eu.pythonanywhere.com
