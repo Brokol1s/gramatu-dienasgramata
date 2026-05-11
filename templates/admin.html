@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    .admin-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-top: 20px;
+    }
+
+    .tabula-admin {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    .tabula-admin th, .tabula-admin td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .tabula-admin th {
+        background-color: #f8f9fa;
+        color: #495057;
+        font-weight: 600;
+    }
+
+    .id-numurs {
+        color: #6c757d;
+        font-family: monospace;
+    }
+
+    .btn-dzest {
+        background-color: #dc3545;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+    .btn-dzest:hover {
+        background-color: #c82333;
+        color: white;
+    }
+
+    .stats-teksts {
+        margin-top: 15px;
+        font-style: italic;
+        color: #666;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Admin Panelis ⚙️</h2>
+        <p class="text-muted">Lietotājs: <strong>{{ session['user'] }}</strong></p>
+    </div>
+
+    <div class="admin-card">
+        <h4>Grāmatu pārvaldība</h4>
+        <table class="tabula-admin">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Grāmatas nosaukums</th>
+                    <th style="text-align: right;">Darbības</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td class="id-numurs">#{{ book.id }}</td>
+                    <td>{{ book.nosaukums }}</td>
+                    <td style="text-align: right;">
+                        <a href="{{ url_for('dzest_gramatu', book_id=book.id) }}" 
+                           class="btn-dzest" 
+                           onclick="return confirm('Vai tiešām izdzēst?')">Dzēst</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <div class="stats-teksts">
+            Kopā datubāzē: {{ books|length }} ieraksti
+        </div>
+    </div>
+</div>
+{% endblock %}

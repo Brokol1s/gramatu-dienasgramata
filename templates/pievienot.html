@@ -1,21 +1,26 @@
 {% extends "layout.html" %}
 {% block content %}
-
-<h2>Pievienot Jaunu Grāmatu</h2>
-    
-    <form method="GET" action="/pievienot">
-
-        <label for="nosaukums"> Gramatas nosaukums:</label>
-        <input  class="form-control" type="text" name="nosaukums" placeholder="Ievadi grāmatas nosaukumu">
-
-        <label for="lapas"> Lapušu skaits:</label>
-        <input  class="form-control" type="number" name="lapas" placeholder="Ievadi lapušu skaitu">
-
-        <label for="vertejums">Novērtējums⭐:</label>
-        <input  class="form-control" type="number" name="vertejums" min="1" max="10" placeholder="Ievadi vertējumu (1-10)">
-
-       <button type="submit" class="btn btn-primary"> Saglabāt</button>
-
-    </form>
-
+<div class="row justify-content-center">
+    <div class="col-md-6 border p-4 rounded bg-white shadow-sm">
+        <h2 class="text-center mb-4">Pievienot grāmatu 📚</h2>
+        <form action="/pievienot" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Nosaukums</label>
+                <input type="text" name="nosaukums" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Lapas</label>
+                <input type="number" name="lapas" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Vērtējums (1-10)</label>
+                <input type="number" name="vertejums" min="1" max="10" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Saglabāt</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
+
+
+
