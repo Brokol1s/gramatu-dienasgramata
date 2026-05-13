@@ -7,3 +7,6 @@ css, python, html, Flask, werkzeug.security (paroļu šifrēšanai)
 https://drawsql.app/teams/ernests-24/diagrams/erd
 ## Mana mājaslapa ##
 https://evsimcuks.eu.pythonanywhere.com
+## Admin ##
+lietotajvārds : admin
+parole : 123
